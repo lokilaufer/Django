@@ -44,14 +44,4 @@ class ScopeInlineFormset(BaseInlineFormSet):
         return super().clean()
 
 
-class ScopeInline(admin.TabularInline):
-    model = Scope
-    formset = ScopeInlineFormset
 
-
-@admin.register(Article)
-class ArticleAdmin(admin.ModelAdmin):
-    inlines = [ScopeInline]
-
-    class Meta:
-        ordering = ['-published_at']
