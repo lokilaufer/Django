@@ -5,12 +5,21 @@ from django_filters.rest_framework import DjangoFilterBackend
 from logistic.models import Product, Stock
 from logistic.serializers import ProductSerializer, StockSerializer
 
+INSTALLED_APPS = {
+
+    'django_filters',
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'apps.core.pagination.StandardResultsSetPagination'
+}
+
 
 class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     filter_backends = [filters.SearchFilter]
-    search_fields = ['title','description']
+    search_fields = ['title', 'description']
 
 
 class StockViewSet(ModelViewSet):
