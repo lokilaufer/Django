@@ -1,7 +1,4 @@
-from django.db import models
-
-# TODO: опишите модели датчика (Sensor) и измерения (Measurement)
-from django.db import models
+ffrom django.db import models
 
 
 class Sensor(models.Model):
@@ -11,8 +8,8 @@ class Sensor(models.Model):
     def __str__(self) -> str:
         return self.name
 
-
 class Measurement(models.Model):
     sensor = models.ForeignKey(Sensor, models.CASCADE, related_name='measurements')
     temperature = models.FloatField('Температура')
     created_at = models.DateTimeField('Дата и время измерения', auto_now=True)
+

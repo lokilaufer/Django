@@ -1,8 +1,4 @@
 from django.urls import path
-
-urlpatterns = [
-    # TODO: зарегистрируйте необходимые маршруты
-]
 from django.urls import path, include
 from rest_framework import routers
 from .views import SensorListCreateView, MeasurementListCreateView, SensorUpdateView
