@@ -1,26 +1,16 @@
 from django.db import models
 
 
-class Teacher(models.Model):
-    name = models.CharField(max_length=30, verbose_name='Имя')
-    subject = models.CharField(max_length=10, verbose_name='Предмет')
+class Article(models.Model):
+
+    title = models.CharField(max_length=256, verbose_name='Название')
+    text = models.TextField(verbose_name='Текст')
+    published_at = models.DateTimeField(verbose_name='Дата публикации')
+    image = models.ImageField(null=True, blank=True, verbose_name='Изображение',)
 
     class Meta:
-        verbose_name = 'Учитель'
-        verbose_name_plural = 'Учителя'
+        verbose_name = 'Статья'
+        verbose_name_plural = 'Статьи'
 
     def __str__(self):
-        return self.name
-
-
-class Student(models.Model):
-    name = models.CharField(max_length=30, verbose_name='Имя')
-    teachers = models.ManyToManyField(Teacher, related_name='students', verbose_name='Учителя')
-    group = models.CharField(max_length=10, verbose_name='Класс')
-
-    class Meta:
-        verbose_name = 'Ученик'
-        verbose_name_plural = 'Ученики'
-
-    def __str__(self):
-        return self.name
+        return self.titl
